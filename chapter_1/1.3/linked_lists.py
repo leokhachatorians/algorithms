@@ -57,6 +57,32 @@ def remove_at_index(head, index):
     prev.next_node = current.next_node
     return head
 
+def reverse_linked_list(head):
+    p = head
+    reverse = Node()
+
+    while p != None:
+        second = p.next_node
+        p.next_node = reverse
+        reverse = p
+        p = second
+
+    return reverse
+
+def travel_forward(head):
+    if not head:
+        return
+    else:
+        print(head.data)
+        travel_forward(head.next_node)
+
+def travel_backward(head):
+    if not head:
+        return
+    else:
+        travel_backward(head.next_node)
+        print(head.data)
+
 if __name__ == '__main__':
     a = Node()
     b = Node()
@@ -79,6 +105,8 @@ if __name__ == '__main__':
     head = insert_at_index("testing", head, 3)
     head = remove_at_index(head, 3)
 
-    while head != None:
-        print(head.data)
-        head = head.next_node
+    travel_forward(head)
+
+    head = reverse_linked_list(head)
+
+    travel_forward(head)
