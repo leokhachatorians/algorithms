@@ -4,7 +4,7 @@ class UF():
     def __init__(self):
         self.id = []
 
-    def UF(self, n):
+    def set_up(self, n):
         self.count = n
         for i in range(n):
             self.id.append(i)
@@ -25,10 +25,9 @@ if __name__ == '__main__':
     with open(sys.argv[1], 'r') as l:
         lines = l.readlines()
     u = UF()
-    u.UF(int(lines[0]))
+    u.set_up(int(lines[0]))
 
     for i in lines[1:]:
-        print(u.id)
         i = i.split()
         p = int(i[0])
         q = int(i[1])
