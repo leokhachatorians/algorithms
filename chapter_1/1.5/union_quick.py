@@ -10,10 +10,7 @@ class UF():
             self.id.append(i)
 
     def connected(self, p, q):
-        return self.find(p) == self.find(q)
-
-    def find(self, p):
-        return self.id[p]
+        return self.id[p] == self.id[q]
 
     def union(self, p, q):
         if self.connected(p, q):
@@ -31,13 +28,12 @@ if __name__ == '__main__':
     u.UF(int(lines[0]))
 
     for i in lines[1:]:
+        print(u.id)
         i = i.split()
         p = int(i[0])
         q = int(i[1])
 
-        if u.connected(p, q):
-            continue
         u.union(p, q)
-        print("{} {}".format(p, q))
+        #print("{} {}".format(p, q))
 
     print(u.count, "components")
